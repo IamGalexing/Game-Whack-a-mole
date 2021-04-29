@@ -11,28 +11,47 @@ html {
 }
 
 body {
+  width: 100%;
+  height: 100vh;
   padding: 0;
   margin: 0;
   font-family: "Amatic SC", cursive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.game-block {
+  height: 90vh;
+  max-height: max-content;
+  width: max-content;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 h1 {
   text-align: center;
-  font-size: 10rem;
+  font-size: 15vmin;
   line-height: 1;
-  margin-bottom: 0;
+  margin: 0 auto;
 }
 
 .score {
+  display: block;
+  font-size: 8vmin;
   background: rgba(255, 255, 255, 0.2);
-  padding: 0 3rem;
+  padding: 0 3vmin;
+  margin: 0;
+  margin-top: 1vmin;
   line-height: 1;
   border-radius: 1rem;
 }
 
 .game {
-  width: 600px;
-  height: 400px;
+  /* flex-shrink: 2; */
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -50,7 +69,7 @@ h1 {
   background-size: contain;
   content: "";
   width: 100%;
-  height: 70px;
+  height: 50px;
   position: absolute;
   z-index: 2;
   bottom: -30px;
@@ -63,7 +82,7 @@ h1 {
   top: 100%;
   width: 100%;
   height: 100%;
-  transition: all 0.4s;
+  transition: all 0.3s;
 }
 
 .hole.up .mole {
@@ -73,12 +92,33 @@ h1 {
 button {
   display: block;
   margin: 0 auto;
-  margin-top: 6rem;
-
-  padding: 1rem 3rem;
+  margin-top: 5rem;
+  width: 20vmin;
+  height: 7vmin;
+  padding: 1vmin 3vmin;
 
   border-radius: 5px;
-  background-color: #111;
+  background-color: #111111;
   color: white;
-  font-size: 2rem;
+  font-size: 3vmin;
+}
+
+button[disabled] {
+  filter: opacity(0.9) blur(1px);
+  /* background-color: rgb(54, 52, 52); */
+}
+
+@media only screen and (max-width: 565px) {
+  .game {
+    height: 260px;
+  }
+  .hole:after {
+    bottom: -25px;
+  }
+}
+
+@media only screen and (max-width: 450px) {
+  .hole:after {
+    bottom: -15px;
+  }
 }
